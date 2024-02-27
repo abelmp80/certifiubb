@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="google" content="notranslate"/>
+    <meta name="csrf-param" content="_csrf">
+<meta name="csrf-token" content="x0HRnoiuMvUkB14Zs8Yhw7mmdsHY4-Z-WHr8IB2B_dWIc5zTyvtZp3dVbVjCjm6IyekwoJ6ukEg3NqZGevbJtw==">
+    <link type="image/x-icon" href="favicon.ico" rel="icon">
+    <link type="image/x-icon" href="favicon.ico" rel="shortcut icon">
+    <title>::PORTAL DE CERTIFICADOS CON FIRMA ELECTRONICA AVANZADA::</title>
+    <style>
+    @keyframes spinner-border {
+      to { transform: rotate(360deg); }
+    }
+    .spinner-border{
+        display:inline-block;
+        width:2rem;
+        height:2rem;
+        vertical-align:text-bottom;
+        border:.25em solid currentColor;
+        border-right-color:transparent;
+        border-radius:50%;
+        -webkit-animation:spinner-border .75s linear infinite;
+        animation: spinner-border .75s linear infinite;
+    }
+    .spinner-border-sm{
+        width:1rem;
+        height:1rem;
+        border-width:.2em;
+    }
+    </style>
+    <link href="/certificadosubb/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/certificadosubb/css/scrolling-nav.css" rel="stylesheet">
+<link href="/certificadosubb/css/jquery-ui.min.css" rel="stylesheet">
+<link href="/css/cu.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap" rel="stylesheet"></head>
+<body id="page-top">
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="index.php">
+                        <i class="glyphicon glyphicon-home"></i> Inicio
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href = "#" onclick="getModal('index.php?r=site/validar-certificado',null);">
+                        <i class="glyphicon glyphicon-check"></i> Verificar Certificado
+                    </a>
+                </li>
+
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="bg-certificados text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6" style="text-align:center;"><a href="index.php"><img src="certificadosubb/img/logo_2.png"></a></div>
+            <div class="col-lg-6" style="text-align:center;"><a href="index.php"><img src="certificadosubb/img/titulo_2.png"></a></div>
+        </div>
+    </div>
+</header>
+
+<section>
+    <div class="container" style="min-height: 45vh;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="site-login">
+    <div class="row">
+        <div class="col-lg-5">
+            <div class="card">
+                <h5 class="card-header texto-blanco">Acceso a Certificados</h5>
+                <div class="card-body">
+                                            <div class="alert alert-info" id="">
+                            <i class="glyphicon glyphicon-info-sign"></i> <b>Información Importante</b><br>
+                            Habilitado sólo para Estudiantes, Egresados o Titulados con identificación Chilena
+                        </div>
+                                                                <form id="login-form" action="/index.php?r=site%2Flogin" method="post">
+<input type="hidden" name="_csrf" value="x0HRnoiuMvUkB14Zs8Yhw7mmdsHY4-Z-WHr8IB2B_dWIc5zTyvtZp3dVbVjCjm6IyekwoJ6ukEg3NqZGevbJtw==">                        <div class="form-group field-loginform-username required">
+
+<input type="hidden" id="loginform-username" class="form-control" name="LoginForm[username]">
+
+<p class="help-block help-block-error"></p>
+</div>                        <div class="form-group">
+                            <input type="text" name="rut_aux" onchange="checkRutFieldGeneral('rut_login');" class="form-control" id="rut_login" placeholder="Ingrese su R.U.T" translate="no">
+                        </div>
+                        <!-- <div class="form-group field-loginform-password required">
+<label class="control-label" for="loginform-password">Clave</label>
+<input type="password" id="loginform-password" class="form-control" name="LoginForm[password]" value="" aria-required="true">
+
+<p class="help-block help-block-error"></p>
+</div> -->
+                        <div class="form-group field-loginform-password required">
+
+<input type="password" id="loginform-password" class="form-control" name="LoginForm[password]" value="" placeholder="Ingrese su Clave" aria-required="true">
+
+<p class="help-block help-block-error"></p>
+</div>
+                        <div class="form-group">
+                            <!-- <div class="col-lg-11"> -->
+                            <button type="button" class="btn btn-warning btn-block" name="login-button" onclick="validar();">Ingresar</button>                           
+                            <!-- </div> -->
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12" style="text-align: right;">
+                                <a onclick = "getModal('index.php?r=site/recuperar-clave',null);" href="#">Recuperar Clave&nbsp;</a>
+                            </div>
+                        </div>
+                 
+                        </form>                
+                        <form id="claveunica-form" action="/index.php?r=site%2Flogin" method="post">
+<input type="hidden" name="_csrf" value="x0HRnoiuMvUkB14Zs8Yhw7mmdsHY4-Z-WHr8IB2B_dWIc5zTyvtZp3dVbVjCjm6IyekwoJ6ukEg3NqZGevbJtw==">                        <div class='my-3 glosa-referencia-cu'>
+                            <p class='h6 pb-1'>También puedes ingresar con tu ClaveÚnica</p>
+                            <center>
+                                <a class='btn-cu btn-m btn-color-estandar' href='index.php?r=callback/login'>
+                                    <span class='cl-claveunica'></span><span class='texto'>Iniciar sesión</span>
+                                </a>
+                            </center>
+                        </div>
+                        </form>                                    </div>
+            </div>
+        </div>
+        <div class="col-lg-7">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="certificadosubb/img/slides/1.jpg" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="certificadosubb/img/slides/2.jpg" alt="Second slide">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+/* validacion de rut ---------------------------------------------------------------------------------------------------------------------------*/
+function checkRutFieldGeneral(id_rut) {
+    var rut = $("#" + id_rut).val();
+    var rut_campo = $("#" + id_rut);
+    var tmpstr = "";
+
+    for (i = 0; i < rut.length; i++)
+        if (rut.charAt(i) != ' ' && rut.charAt(i) != '.' && rut.charAt(i) != '-')
+            tmpstr = tmpstr + rut.charAt(i);
+    rut = tmpstr;
+    largo = rut.length;
+    tmpstr = "";
+    for (i = 0; rut.charAt(i) == '0'; i++)
+        ;
+    for (; i < rut.length; i++)
+        tmpstr = tmpstr + rut.charAt(i);
+    rut = tmpstr;
+    largo = rut.length;
+
+    if (largo < 2) {
+         alert("Debe ingresar el rut completo.");
+
+        rut_campo.val('');
+        rut_campo.focus();
+        rut_campo.select();
+        return false;
+    }
+    for (i = 0; i < largo; i++) {
+        if (rut.charAt(i) != "0" && rut.charAt(i) != "1" && rut.charAt(i) != "2" && rut.charAt(i) != "3" && rut.charAt(i) != "4" && rut.charAt(i) != "5" && rut.charAt(i) != "6" && rut.charAt(i) != "7" && rut.charAt(i) != "8" && rut.charAt(i) != "9" && rut.charAt(i) != "k" && rut.charAt(i) != "K") {
+             alert("El valor ingresado no corresponde a un R.U.T valido.");
+
+            rut_campo.val('');
+            rut_campo.focus();
+            rut_campo.select();
+            return false;
+        }
+    }
+    var invertido = "";
+    for (i = (largo - 1), j = 0; i >= 0; i--, j++)
+        invertido = invertido + rut.charAt(i);
+    var drut = "";
+    drut = drut + invertido.charAt(0);
+    drut = drut + '-';
+    cnt = 0;
+    for (i = 1, j = 2; i < largo; i++, j++) {
+        if (cnt == 3) {
+            drut = drut + '.';
+            j++;
+            drut = drut + invertido.charAt(i);
+            cnt = 1;
+        }
+        else {
+            drut = drut + invertido.charAt(i);
+            cnt++;
+        }
+    }
+    invertido = "";
+    for (i = (drut.length - 1), j = 0; i >= 0; i--, j++)
+        invertido = invertido + drut.charAt(i);
+    // document.autorizar_permiso.rut.value = invertido;
+    rut_campo.val(invertido);
+    if (checkDVGeneral(rut, id_rut))
+        return true;
+    return false;
+}
+function checkDVGeneral(crut, id_rut) {
+    var rut_campo = $("#" + id_rut);
+    largo = crut.length;
+    var crut_campo = $("#" + id_rut);
+    if (largo < 2) {
+         alert("Debe ingresar el rut completo.");
+        rut_campo.val('');
+        rut_campo.focus();
+        rut_campo.select();
+        return false;
+    }
+    if (largo > 2)
+        rut = crut.substring(0, largo - 1);
+    else
+        rut = crut.charAt(0);
+    dv = crut.charAt(largo - 1);
+    checkCDVGeneral(dv, id_rut);
+    if (rut == null || dv == null)
+        return 0;
+    var dvr = '0';
+    suma = 0;
+    mul = 2;
+    for (i = rut.length - 1; i >= 0; i--) {
+        suma = suma + rut.charAt(i) * mul;
+        if (mul == 7)
+            mul = 2;
+        else
+            mul++;
+    }
+    res = suma % 11;
+    if (res == 1)
+        dvr = 'k';
+    else if (res == 0)
+        dvr = '0';
+    else {
+        dvi = 11 - res;
+        dvr = dvi + "";
+    }
+    if (dvr != dv.toLowerCase()) {
+         alert("El rut es incorrecto.");
+        crut_campo.val('');
+        crut_campo.focus();
+        crut_campo.select();
+        crut_campo.parent().parent().find('input[type="text"]').val('');
+        return false;
+    }
+    return true;
+}
+function checkCDVGeneral(dvr, id_rut) {
+    var rut_campo = $("#" + id_rut);
+    dv = dvr + "";
+    if (dv != '0' && dv != '1' && dv != '2' && dv != '3' && dv != '4' && dv != '5' && dv != '6' && dv != '7' && dv != '8' && dv != '9' && dv != 'k' && dv != 'K') {
+         alert("Debe ingresar un digito verificador valido.");
+
+        rut_campo.val('');
+        rut_campo.focus();
+        rut_campo.select();
+        return false;
+    }
+    return true;
+}
+//Activa check del buscador Rut
+function activaCheckGeneral(rut_id, nombre_id, check_id, btn_buscar_id) {
+    if ($('#' + check_id).prop('checked') == true) {
+        $('#' + btn_buscar_id).attr('disabled', true);
+        $('#' + rut_id).attr('readonly', true);
+        $('#' + rut_id).val('');
+        $('#' + nombre_id).val('');
+    }
+    else {
+        $('#' + btn_buscar_id).attr('disabled', false);
+        $('#' + rut_id).attr('readonly', false);
+        $('#' + rut_id).focus();
+    }
+}
+
+function validar() {
+     if (checkRutFieldGeneral('rut_login')) {
+        var rut = $('#rut_login').val().split('.').join('');
+        rut = rut.split("-")[0];
+        $('#loginform-username').val(rut);
+        $("button[name='login-button']").prop('disabled', true);
+        $("button[name='login-button']").html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Validando Ingreso ...');
+        $('#login-form').submit();
+
+     }
+ }
+</script>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+<footer class="py-5 bg-certificados">
+    <div class="container">
+        <div class="row">
+                    <div class="col-lg-6 texto-blanco">
+                <p>Para un correcto funcionamiento del sistema, por favor utilice uno de los siguientes navegadores: <strong>Google Chrome</strong> o <strong>Mozilla Firefox</strong>.</p>
+                <!--h4 class="texto-naranjo"><i class="glyphicon glyphicon-file"></i>Certificados Disponibles</h4-->
+                <ul>
+                <!--li>Certificados disponibles a partir de 1990 de Título, Título Intermedio y Grado</li-->
+                                </ul>
+            </div>
+            <div class="col-lg-6 texto-blanco">
+                <div style="text-align:center;"><img width="295px" height="94px" src="certificadosubb/img/logo_acreditacion_2019.png"></div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="/assets/e7cd503a/jquery.js"></script>
+<script src="/assets/7b4ef1be/yii.js"></script>
+<script src="/assets/7b4ef1be/yii.validation.js"></script>
+<script src="/assets/7b4ef1be/yii.activeForm.js"></script>
+<script src="/certificadosubb/vendor/jquery/jquery.min.js"></script>
+<script src="/certificadosubb/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/certificadosubb/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="/certificadosubb/js/scrolling-nav.js"></script>
+<script src="/certificadosubb/js/jquery-ui.min.js"></script>
+<script src="/certificadosubb/js/bootstrap-notify.min.js"></script>
+<script>jQuery(function ($) {
+jQuery('#login-form').yiiActiveForm([{"id":"loginform-username","name":"username","container":".field-loginform-username","input":"#loginform-username","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"RUT cannot be blank."});}},{"id":"loginform-password","name":"password","container":".field-loginform-password","input":"#loginform-password","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Clave cannot be blank."});}},{"id":"loginform-password","name":"password","container":".field-loginform-password","input":"#loginform-password","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Clave cannot be blank."});}}], []);
+jQuery('#claveunica-form').yiiActiveForm([], []);
+});</script>
+ 
+
+ 
+
+</script>
+</body>
+</html>

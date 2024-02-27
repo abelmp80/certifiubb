@@ -1,0 +1,87 @@
+/*!
+ * Start Bootstrap - Scrolling Nav (https://startbootstrap.com/template-overviews/scrolling-nav)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-scrolling-nav/blob/master/LICENSE)
+ */
+
+header {
+  padding: 50px 0 50px;
+  background: url("../img/logo-sombra.png");
+  background-repeat:no-repeat;
+  background-position: center center;   
+}
+
+@media (min-width: 992px) {
+  header {
+    padding: 50px 0 50px;
+  }
+}
+
+section {
+  padding: 150px 0;
+}
+
+.navbar {
+    padding: 0rem 1rem!important;
+}
+
+.bg-dark {
+    background-color: #193661!important;
+}
+.bg-certificados {
+    background-color: #21437d!important;
+}
+.nav-link {
+    color: rgba(255, 255, 255)!important;
+}
+.main-titulo{
+	float: right;
+}
+
+.texto-blanco {
+    color: rgba(255, 255, 255)!important;
+}
+
+.texto-naranjo{
+	color: #db9312!important;
+}
+
+.card-header{
+    background: #db9312!important;
+}
+
+.card-header-gray{
+    background: #b2b2b1!important;
+}
+
+section {
+    padding: 50px 0!important;
+}
+
+.btn-warning{
+	background-color: #db9312!important;
+	border-color: #db9312!important;
+	color: rgba(255, 255, 255)!important;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+a {
+	color:#db9312;
+}
+
+.div-certificado{
+	height: 100%;
+	width: 100%;
+}
+
+.pcertificado{
+  margin-top: 0;
+  margin-bottom: 0rem;
+}
+
